@@ -1,0 +1,13 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "Install Next.js and Tailwind CSS",
+			"command": "npx create-next-app@latest . --ts --tailwind --eslint --src-dir --app --no-interactive",
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
+		}
+	]
+}
