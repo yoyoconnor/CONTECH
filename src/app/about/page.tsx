@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function About() {
   // Neural network layer definitions
@@ -150,9 +151,11 @@ export default function About() {
         <div className="flex flex-col md:flex-row gap-8 justify-center items-center">
           {/* Founder 1 */}
           <div className="flex flex-col items-center bg-gray-900/70 rounded-2xl p-6 shadow-lg w-64">
-            <img
+            <Image
               src="https://media.licdn.com/dms/image/v2/D5603AQF7WilUXNAAPA/profile-displayphoto-shrink_400_400/B56ZbpdDWfGsAg-/0/1747673430938?e=1755734400&v=beta&t=6_qfeTJJQDz-u0Ttx8o7L6ZEggn6gvSAAfrM7aWbE8M"
               alt="Connor Barbaccia"
+              width={112}
+              height={112}
               className="w-28 h-28 rounded-full object-cover mb-4 border-4 border-blue-700 shadow"
             />
             <div className="text-white font-semibold text-lg">Connor Barbaccia</div>
@@ -169,9 +172,11 @@ export default function About() {
 
           {/* Founder 2 */}
           <div className="flex flex-col items-center bg-gray-900/70 rounded-2xl p-6 shadow-lg w-64">
-            <img
+            <Image
               src="https://media.licdn.com/dms/image/v2/D4E03AQG50n37PU9jiw/profile-displayphoto-shrink_400_400/B4EZbhUPbwHYAg-/0/1747536902376?e=1755734400&v=beta&t=xXmFS3VZAPbK5EUeOFgDbyp6aNJrjhHdAJbUSQOOa5U"
               alt="Connor Kulawiak"
+              width={112}
+              height={112}
               className="w-28 h-28 rounded-full object-cover mb-4 border-4 border-blue-700 shadow"
             />
             <div className="text-white font-semibold text-lg">Connor Kulawiak</div>

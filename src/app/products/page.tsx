@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 const products = [
 	{
 		name: "AI Chatbot",
@@ -38,10 +40,12 @@ export default function Products() {
 							key={product.name}
 							className="bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-blue-900/80 rounded-2xl p-8 flex flex-col items-center shadow-2xl border border-blue-900 hover:scale-105 hover:border-blue-400 transition-transform duration-300 group cursor-pointer backdrop-blur-md"
 						>
-							<img
+							<Image
 								src={product.image}
 								alt={product.name}
-								className="h-20 w-20 mb-6 object-contain drop-shadow-lg"
+								width={80}
+								height={80}
+								className="w-20 h-20 object-contain mb-4"
 							/>
 							<h2 className="text-2xl font-bold text-blue-300 mb-2 group-hover:text-blue-200 transition text-center">
 								{product.name}

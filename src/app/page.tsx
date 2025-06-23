@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const currentYear = new Date().getFullYear();
 
@@ -6,9 +7,10 @@ export default function Home() {
   return (
     <main className="min-h-screen relative flex flex-col items-center px-4 overflow-hidden">
       {/* Background Image */}
-      <img
+      <Image
         src="/back.png"
         alt="Background"
+        fill
         className="fixed inset-0 w-full h-full object-cover z-0 pointer-events-none select-none"
         aria-hidden="true"
       />
@@ -133,9 +135,8 @@ export default function Home() {
           Why Now?
         </h2>
         <p className="text-gray-200 text-lg md:text-xl leading-relaxed">
-          Most businesses know AI is the future—but they don’t know where to
-          start.{" "}
-          <span className="font-semibold text-white">CONtext</span> is here to
+          Most businesses know AI is the future&mdash;but they don&apos;t know where to
+          start. <span className="font-semibold text-white">CONtext</span> is here to
           help them begin that journey.
         </p>
       </section>
@@ -146,10 +147,10 @@ export default function Home() {
         className="w-full max-w-2xl text-center py-12 z-10 relative"
       >
         <h2 className="text-2xl md:text-3xl font-bold mb-4 text-blue-300">
-          Let's Build the Future Together
+          Let&apos;s Build the Future Together
         </h2>
         <p className="text-gray-200 mb-8 text-lg md:text-xl">
-          Whether you're ready to integrate or just exploring, we're here to
+          Whether you&apos;re ready to integrate or just exploring, we&apos;re here to
           help.
         </p>
         <a

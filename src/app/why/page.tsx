@@ -1,20 +1,26 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 export default function WhyNow() {
   return (
     <>
       <div className="fixed inset-0 w-full h-full z-0" aria-hidden="true">
         <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-black/80 via-blue-900/70 to-blue-600/60" />
-        <img src="/rag.png" alt="Background" className="w-full h-full object-cover object-center absolute inset-0" />
+        <Image
+          src="/rag.png"
+          alt="Background"
+          fill
+          className="w-full h-full object-cover object-center absolute inset-0"
+        />
       </div>
       <main className="min-h-screen flex flex-col items-center px-4 py-16 relative z-10">
         <div className="bg-black/60 rounded-3xl shadow-2xl p-10 md:p-16 max-w-3xl w-full flex flex-col items-center backdrop-blur-md">
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-10 drop-shadow-xl text-center">Why Now?</h1>
           <article className="text-gray-200 text-lg md:text-xl leading-relaxed max-w-2xl text-center mb-10">
             <p className="mb-6">
-              The world is changing fast—AI is no longer a luxury, it's a necessity for businesses that want to stay competitive. Small and medium businesses that implement AI today gain a massive edge in efficiency, customer experience, and growth. Waiting means falling behind as competitors automate, analyze, and adapt faster than ever before.
+              The world is changing fast&mdash;AI is no longer a luxury, it&apos;s a necessity for businesses that want to stay competitive. Small and medium businesses that implement AI today gain a massive edge in efficiency, customer experience, and growth. Waiting means falling behind as competitors automate, analyze, and adapt faster than ever before.
             </p>
             <p className="mb-6">
               <span className="font-semibold text-white">Contech</span> makes it easy to start your AI journey now, with no upfront cost and a pricing model that grows only as your business succeeds. We believe in your growth: if you grow, we grow—no risk, no barriers.
