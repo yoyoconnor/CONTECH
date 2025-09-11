@@ -16,7 +16,7 @@ const products = [
     link: "#",
   },
   {
-    name: "Workflow Automator",
+    name: "Workflow Automation",
     description: "Automate repetitive tasks and connect your favorite business tools with AI.",
     image: "/window.svg",
     link: "#",

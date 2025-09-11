@@ -5,7 +5,7 @@ import Link from "next/link";
 export function Navbar() {
   return (
     <header className="w-full">
-      <nav className="relative flex items-center justify-between h-20 md:h-24 rounded-2xl bg-black/40 backdrop-blur-xl border border-white/10 shadow-lg px-6 md:px-10 overflow-hidden">
+      <nav className="relative flex items-center justify-between h-20 md:h-24 rounded-full bg-black/40 backdrop-blur-xl border border-white/10 shadow-lg px-6 md:px-10 overflow-hidden">
         {/* subtle gradient line */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-transparent to-cyan-400/10" />
