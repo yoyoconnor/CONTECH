@@ -36,17 +36,17 @@ export default function Products() {
         {products.map((product) => (
           <div
             key={product.name}
-            className="card-base card-loose group flex flex-col items-start overflow-hidden relative"
+            className="group relative flex flex-col items-start overflow-hidden rounded-3xl p-10 bg-white text-slate-800 shadow-xl shadow-blue-900/10 border border-slate-200 transition duration-300 hover:-translate-y-1 hover:shadow-2xl focus-within:shadow-2xl"
           >
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.15),transparent_65%)]" />
-            <div className="mb-5 p-4 rounded-2xl bg-blue-500/15 border border-blue-400/30 inline-flex relative z-10">
+            <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.15),transparent_70%)]" />
+            <div className="mb-6 p-4 rounded-2xl bg-blue-50 border border-blue-200 inline-flex relative z-10">
               <Image src={product.image} alt={product.name} width={64} height={64} className="w-16 h-16 object-contain" />
             </div>
-            <h2 className="text-2xl font-bold text-white mb-2 group-hover:text-blue-100 transition relative z-10">{product.name}</h2>
-            <p className="text-gray-200 text-base leading-relaxed mb-6 relative z-10">{product.description}</p>
+            <h2 className="text-2xl font-bold mb-3 tracking-tight relative z-10 text-slate-900 group-hover:text-blue-700 transition">{product.name}</h2>
+            <p className="text-slate-600 text-base leading-relaxed mb-8 relative z-10">{product.description}</p>
             <a
               href={product.link}
-              className="inline-block px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold shadow focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition mt-auto relative z-10"
+              className="inline-block px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold shadow focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-white transition mt-auto relative z-10"
             >
               Learn More
             </a>
