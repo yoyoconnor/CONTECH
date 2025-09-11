@@ -1,171 +1,214 @@
+"use client";
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const currentYear = new Date().getFullYear();
 
 export default function Home() {
+  const featureCards = [
+    {
+      title: "AI-Powered Analytics",
+      desc: "Convert raw operational data into forward-looking intelligence.",
+      icon: (
+        <svg width="40" height="40" viewBox="0 0 24 24" className="text-blue-400">
+          <path d="M5 12l5 5L20 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      ),
+    },
+    {
+      title: "Process Automation",
+      desc: "Eliminate repetitive workflows with adaptive orchestration.",
+      icon: (
+        <svg width="40" height="40" viewBox="0 0 24 24" className="text-blue-400">
+          <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />
+          <path d="M8 12l2 2 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      ),
+    },
+    {
+      title: "Generative AI",
+      desc: "Deploy tailored generation for content, personalization & insights.",
+      icon: (
+        <svg width="40" height="40" viewBox="0 0 24 24" className="text-blue-400">
+          <path d="M12 2v20M2 12h20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        </svg>
+      ),
+    },
+  ];
+
+  const templateSolutions = [
+    { name: "Demand Forecasting", blurb: "Predict volume & inventory with time-series + causal drivers.", color: "from-blue-500/30 to-cyan-400/20" },
+    { name: "Churn Detection", blurb: "Surface at-risk customers early and trigger retention flows.", color: "from-indigo-500/30 to-purple-400/20" },
+    { name: "Workflow Orchestrator", blurb: "Chain tools, LLM calls, and data events into adaptive pipelines.", color: "from-emerald-500/30 to-teal-400/20" },
+    { name: "Generative Knowledge Base", blurb: "Context-grounded Q&A over your operational data.", color: "from-fuchsia-500/30 to-pink-400/20" },
+  ];
+
   return (
     <main className="min-h-screen relative flex flex-col items-center px-4 overflow-hidden">
-      {/* Background Image */}
+      {/* Background image subtle overlay */}
       <Image
         src="/back.png"
         alt="Background"
         fill
-        className="fixed inset-0 w-full h-full object-cover z-0 pointer-events-none select-none"
+        className="fixed inset-0 w-full h-full object-cover object-center opacity-40 mix-blend-screen pointer-events-none select-none -z-10"
         aria-hidden="true"
       />
-      {/* Overlay for gradient and color blending, now scrolls with content */}
 
-      {/* Hero Section */}
-      <section className="w-full max-w-3xl flex flex-col items-center text-center py-32 md:py-48 z-10 relative">
-        <h1 className="text-4xl md:text-6xl font-extrabold mb-6 text-white drop-shadow-xl">
-          AI-powered systems for small business growth
-        </h1>
-        <p className="text-gray-200 text-xl md:text-2xl mb-8 max-w-2xl">
-          We help small businesses integrate AI into their operations through
-          automation, analytics, and generative intelligence.
-        </p>
-        <a
-          href="/products"
-          className="inline-block px-8 py-4 bg-blue-600 text-white font-bold rounded-xl shadow-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition text-lg md:text-xl mt-4"
+      {/* Hero */}
+      <section className="w-full max-w-5xl flex flex-col items-center text-center pt-10 md:pt-16 pb-24 relative">
+        <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-[750px] h-[750px] bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.18),transparent_70%)] pointer-events-none" />
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-4xl md:text-[3.5rem] leading-[1.1] font-extrabold mb-8 tracking-tight max-w-5xl text-white relative"
         >
-          Check Out Our Products
-        </a>
+          <span className="bg-gradient-to-r from-blue-200 via-cyan-200 to-blue-400 bg-clip-text text-transparent inline-block animate-[gradientMove_6s_linear_infinite] bg-[length:200%_auto]">
+            Operational AI
+          </span>{" "}that compounds your advantage
+          <span className="absolute -inset-x-10 -bottom-4 h-px bg-gradient-to-r from-transparent via-blue-500/40 to-transparent" />
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.15, duration: 0.7 }}
+          className="text-gray-300 text-lg md:text-2xl mb-12 max-w-3xl leading-relaxed"
+        >
+          Deploy intelligence into forecasting, automation, enrichment, and decision flows—without re-platforming. Start narrow, prove value, expand with momentum. Usage-based. No lock‑in.
+        </motion.p>
+        <motion.div
+          initial="hidden"
+          animate="show"
+          variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { staggerChildren: 0.12 } } }}
+          className="flex flex-col sm:flex-row gap-4"
+        >
+          {[
+            { label: "Explore Products", href: "/products", primary: true },
+            { label: "Talk To Us", href: "/contact" },
+          ].map((btn) => (
+            <motion.a
+              key={btn.label}
+              href={btn.href}
+              variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0 } }}
+              whileHover={{ y: -2 }}
+              whileTap={{ y: 1 }}
+              className={
+                btn.primary
+                  ? "px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold shadow-lg shadow-blue-900/40 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition"
+                  : "px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold border border-white/15 backdrop-blur-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-offset-2 transition"
+              }
+            >
+              {btn.label}
+            </motion.a>
+          ))}
+        </motion.div>
       </section>
 
-      {/* Services Section */}
-      <section
-        id="services"
-        className="w-full max-w-5xl py-12 z-10 relative"
-      >
-        <div className="flex flex-col md:flex-row gap-8 justify-center">
-          {/* Card 1 */}
-          <div className="bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-blue-900/80 rounded-2xl p-10 flex-1 min-w-[260px] shadow-2xl border border-blue-900 hover:scale-105 hover:border-blue-400 transition-transform duration-300 group cursor-pointer backdrop-blur-md">
-            <h3 className="text-2xl font-semibold text-blue-300 mb-3 group-hover:text-blue-200 transition">
-              AI-Powered Analytics
-            </h3>
-            <p className="text-gray-200 text-lg">
-              Turn raw data into actionable insights.
-            </p>
-            <div className="mt-6 flex justify-center">
-              <svg
-                width="40"
-                height="40"
-                fill="none"
-                viewBox="0 0 24 24"
-                className="text-blue-400 group-hover:text-blue-200 transition"
-              >
-                <path
-                  d="M5 12l5 5L20 7"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </div>
-          </div>
-          {/* Card 2 */}
-          <div className="bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-blue-900/80 rounded-2xl p-10 flex-1 min-w-[260px] shadow-2xl border border-blue-900 hover:scale-105 hover:border-blue-400 transition-transform duration-300 group cursor-pointer backdrop-blur-md">
-            <h3 className="text-2xl font-semibold text-blue-300 mb-3 group-hover:text-blue-200 transition">
-              Process Automation
-            </h3>
-            <p className="text-gray-200 text-lg">
-              Streamline workflows and reduce manual tasks.
-            </p>
-            <div className="mt-6 flex justify-center">
-              <svg
-                width="40"
-                height="40"
-                fill="none"
-                viewBox="0 0 24 24"
-                className="text-blue-400 group-hover:text-blue-200 transition"
-              >
-                <circle
-                  cx="12"
-                  cy="12"
-                  r="10"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                />
-                <path
-                  d="M8 12l2 2 4-4"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </div>
-          </div>
-          {/* Card 3 */}
-          <div className="bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-blue-900/80 rounded-2xl p-10 flex-1 min-w-[260px] shadow-2xl border border-blue-900 hover:scale-105 hover:border-blue-400 transition-transform duration-300 group cursor-pointer backdrop-blur-md">
-            <h3 className="text-2xl font-semibold text-blue-300 mb-3 group-hover:text-blue-200 transition">
-              Generative AI
-            </h3>
-            <p className="text-gray-200 text-lg">
-              Deploy advanced AI to create content and engage customers.
-            </p>
-            <div className="mt-6 flex justify-center">
-              <svg
-                width="40"
-                height="40"
-                fill="none"
-                viewBox="0 0 24 24"
-                className="text-blue-400 group-hover:text-blue-200 transition"
-              >
-                <path
-                  d="M12 2v20M2 12h20"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </div>
-          </div>
+      {/* Feature Grid */}
+      <section id="services" className="w-full max-w-6xl pb-8 relative">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={{ hidden: {}, show: { transition: { staggerChildren: 0.15 } } }}
+          className="grid md:grid-cols-3 gap-8"
+        >
+          {featureCards.map((card) => (
+            <motion.div
+              key={card.title}
+              variants={{ hidden: { opacity: 0, y: 30, scale: 0.95 }, show: { opacity: 1, y: 0, scale: 1 } }}
+              whileHover={{ scale: 1.03 }}
+              className="card-base card-loose group overflow-hidden"
+            >
+              {/* subtle hover sheen */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.12),transparent_65%)]" />
+              <div className="relative z-10 flex flex-col items-start">
+                <div className="mb-4 p-3 rounded-xl bg-blue-500/15 border border-blue-400/30">{card.icon}</div>
+                <h3 className="text-2xl font-semibold text-white mb-3 tracking-tight group-hover:text-blue-100 transition">{card.title}</h3>
+                <p className="text-gray-200 text-base leading-relaxed">{card.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </section>
+
+      {/* Templates Section */}
+      <section className="w-full max-w-6xl py-24 relative" id="templates">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="text-center mb-14"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">Starter Templates</h2>
+          <p className="text-gray-300 max-w-2xl mx-auto leading-relaxed">
+            Launch faster with pre-configured solution patterns. Customize, extend, and scale without rebuilding primitives.
+          </p>
+        </motion.div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {templateSolutions.map((tpl) => (
+            <motion.div
+              key={tpl.name}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.55 }}
+              whileHover={{ y: -4 }}
+              className="card-base p-6 group overflow-hidden"
+            >
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-[linear-gradient(135deg,rgba(255,255,255,0.14),transparent)]" />
+              <div className="relative z-10">
+                <h3 className="text-lg font-semibold text-white mb-2 tracking-tight">{tpl.name}</h3>
+                <p className="text-gray-200 text-sm leading-relaxed">{tpl.blurb}</p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </section>
 
-      {/* Market Opportunity Section */}
-      <section
+      {/* Why Now CTA */}
+      <motion.section
         id="why"
-        className="w-full max-w-2xl text-center py-12 z-10 relative"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.7 }}
+        className="w-full max-w-4xl text-center py-24 relative"
       >
-        <h2 className="text-2xl md:text-3xl font-bold mb-4 text-blue-300">
-          Why Now?
-        </h2>
-        <p className="text-gray-200 text-lg md:text-xl leading-relaxed">
-          Most businesses know AI is the future&mdash;but they don&apos;t know where to
-          start. <span className="font-semibold text-white">CONtext</span> is here to
-          help them begin that journey.
+        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white tracking-tight">Why Now?</h2>
+        <p className="text-gray-300 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
+          Most teams know AI is inevitable—but execution lags. Contech turns intention into deployed value. Start narrow, expand as impact compounds.
         </p>
-      </section>
+      </motion.section>
 
-      {/* Call to Action Section */}
-      <section
+      {/* Final CTA */}
+      <motion.section
         id="contact"
-        className="w-full max-w-2xl text-center py-12 z-10 relative"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.7 }}
+        className="w-full max-w-4xl text-center pb-16 relative"
       >
-        <h2 className="text-2xl md:text-3xl font-bold mb-4 text-blue-300">
-          Let&apos;s Build the Future Together
-        </h2>
-        <p className="text-gray-200 mb-8 text-lg md:text-xl">
-          Whether you&apos;re ready to integrate or just exploring, we&apos;re here to
-          help.
-        </p>
-        <a
-          href="mailto:hello@context.ai"
-          className="inline-block px-10 py-5 bg-blue-600 text-white font-bold rounded-xl shadow-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition text-xl md:text-2xl animate-pulse hover:animate-none"
-        >
-          Get in Touch
-        </a>
-      </section>
+        <div className="card-base card-loose">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Let&apos;s Build The Future</h2>
+          <p className="text-gray-200 mb-8 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+            Whether you&apos;re exploring or scaling—let&apos;s design the adaptive systems that move your business forward.
+          </p>
+          <a
+            href="mailto:hello@context.ai"
+            className="inline-block px-10 py-5 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl shadow-lg shadow-blue-900/40 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition text-lg md:text-xl"
+          >
+            Get in Touch
+          </a>
+        </div>
+      </motion.section>
 
       {/* Footer */}
-      <footer className="w-full text-center py-8 border-t border-gray-800 text-gray-300 text-lg mt-12 z-10 relative">
-        © {currentYear}{" "}
-        <span className="font-bold text-white">CONtext</span>. All rights
-        reserved.
+      <footer className="w-full text-center py-10 border-t border-white/10 text-gray-400 text-sm mt-8">
+        © {currentYear} <span className="font-semibold text-white">Contech</span>. All rights reserved.
       </footer>
     </main>
   );

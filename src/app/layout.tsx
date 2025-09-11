@@ -25,13 +25,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <div className="fixed top-0 left-0 w-full z-50">
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased relative`}>        
+        {/* Global Background */}
+        <div className="fixed inset-0 -z-10">
+          {/* Brightened layered gradient + radial accents */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0d1824] via-[#12304c] to-[#0b3a63]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_35%,rgba(99,167,255,0.40),transparent_60%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_70%,rgba(56,189,248,0.28),transparent_65%)]" />
+        </div>
+        {/* Navbar */}
+        <div className="fixed top-0 left-0 w-full z-50 px-4 md:px-8">
           <Navbar />
         </div>
-        <div className="pt-20">{/* Spacer for fixed navbar height */}
+        {/* Spacer for fixed navbar height */}
+        <div className="pt-28 pb-12 px-4 md:px-8">
           {children}
         </div>
       </body>
