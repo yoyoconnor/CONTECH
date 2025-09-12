@@ -206,10 +206,7 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* Footer */}
-      <footer className="w-full text-center py-10 border-t border-white/10 text-gray-400 text-sm mt-8">
-        © {currentYear} <span className="font-semibold text-white">Contech</span>. All rights reserved.
-      </footer>
+      {/* Global footer is rendered in layout */}
     </main>
   );
 }

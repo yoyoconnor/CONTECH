@@ -25,7 +25,7 @@ export default function Contact() {
             Email Us
           </a>
           <a
-            href="https://www.linkedin.com/company/context-ai/"
+            href="https://www.linkedin.com/company/contech-ai/about/"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl shadow-lg border border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-offset-2 transition text-center"
