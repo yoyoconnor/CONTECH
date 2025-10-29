@@ -65,10 +65,12 @@ export default function RootLayout({ children }: { children: any }) {
           <Navbar />
         </div>
   {/* Spacer for fixed navbar height */}
-  <div className="pt-28 pb-12 px-4 md:px-8 rounded-3xl overflow-hidden">
-          <main id="main" tabIndex={-1}>
-            {children}
-          </main>
+  <div className="pt-28 pb-12 px-4 md:px-8">
+          <div className="max-w-7xl mx-auto bg-black/10 dark:bg-white/4 backdrop-blur-md border border-white/6 rounded-3xl p-6 md:p-8 overflow-hidden">
+            <main id="main" tabIndex={-1}>
+              {children}
+            </main>
+          </div>
           {/* Global Footer */}
           <footer className="w-full text-gray-300 mt-12 border-t border-white/10">
             <div className="max-w-6xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
