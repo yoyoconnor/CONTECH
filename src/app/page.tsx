@@ -56,7 +56,7 @@ export default function Home() {
       />
 
       {/* Hero */}
-      <section className="w-full max-w-5xl flex flex-col items-center text-center pt-10 md:pt-16 pb-24 relative">
+  <section className="w-full max-w-5xl flex flex-col items-center text-center pt-10 md:pt-16 pb-24 relative rounded-3xl overflow-hidden">
         <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-[750px] h-[750px] bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.18),transparent_70%)] pointer-events-none" />
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -106,7 +106,7 @@ export default function Home() {
       </section>
 
       {/* Feature Grid */}
-      <section id="services" className="w-full max-w-6xl pb-8 relative">
+  <section id="services" className="w-full max-w-6xl pb-8 relative rounded-3xl overflow-hidden">
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -134,7 +134,7 @@ export default function Home() {
       </section>
 
       {/* Templates Section */}
-      <section className="w-full max-w-6xl py-24 relative" id="templates">
+  <section className="w-full max-w-6xl py-24 relative rounded-3xl overflow-hidden" id="templates">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -175,7 +175,7 @@ export default function Home() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.7 }}
-        className="w-full max-w-4xl text-center py-24 relative"
+  className="w-full max-w-4xl text-center py-24 relative rounded-3xl overflow-hidden"
       >
         <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white tracking-tight">Why Now?</h2>
         <p className="text-gray-300 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
@@ -190,7 +190,7 @@ export default function Home() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.7 }}
-        className="w-full max-w-4xl text-center pb-16 relative"
+  className="w-full max-w-4xl text-center pb-16 relative rounded-3xl overflow-hidden"
       >
         <div className="card-base card-loose">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Let&apos;s Build The Future</h2>
@@ -198,7 +198,7 @@ export default function Home() {
             Whether you&apos;re exploring or scaling—let&apos;s design the adaptive systems that move your business forward.
           </p>
           <a
-            href="mailto:hello@context.ai"
+            href="mailto:crbarbaccia@crimson.ua.edu"
             className="inline-block px-10 py-5 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl shadow-lg shadow-blue-900/40 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition text-lg md:text-xl"
           >
             Get in Touch

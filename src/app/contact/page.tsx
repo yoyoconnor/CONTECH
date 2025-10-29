@@ -19,7 +19,7 @@ export default function Contact() {
         </p>
         <div className="flex flex-col gap-4 w-full relative z-10">
           <a
-            href="mailto:contact@contech.ai"
+            href="mailto:crbarbaccia@crimson.ua.edu"
             className="w-full px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition text-center"
           >
             Email Us

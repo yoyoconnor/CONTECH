@@ -21,6 +21,28 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Theme variable overrides for light/dark modes (simple, opt-in) */
+.light {
+  --background: #f7fbff;
+  --foreground: #0b1220;
+}
+
+.dark {
+  --background: #071022;
+  --foreground: #e8f1fb;
+}
+
+/* Skip link — visually hidden until focused */
+.skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+.skip-link:focus, .skip-link:active { left: 1rem; top: 1rem; width: auto; height: auto; padding: 0.5rem 0.75rem; z-index: 9999; transform: translateY(0); opacity: 1; }
+
+/* Accessible focus-visible helper (for browsers not supporting :focus-visible) */
+:focus:not(:focus-visible) { outline: none; }
+
+.social-icon { display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:12px; color:var(--foreground); background:transparent; transition:all .18s ease; }
+.social-icon svg { width:18px; height:18px; }
+.social-icon:hover { transform:translateY(-3px); color:#fff; background:linear-gradient(90deg,rgba(59,130,246,0.12),rgba(6,182,212,0.08)); }
+
 @keyframes gradientMove { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
 
 /* Scrollbar subtle */
@@ -38,8 +60,8 @@ body {
 .blur-glow:before { content:""; position:absolute; inset:0; background:radial-gradient(circle at 30% 30%, rgba(96,165,250,0.35), transparent 70%); filter:blur(42px); opacity:.55; pointer-events:none; }
 
 /* Popping Card Utilities (brightened) */
-.card-base { position:relative; border-radius:1.5rem; background:rgba(255,255,255,0.08); backdrop-filter:blur(22px); -webkit-backdrop-filter:blur(22px); border:1px solid rgba(255,255,255,0.12); box-shadow:0 6px 28px -6px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.04); transition:box-shadow .45s, transform .45s, border-color .45s, background .45s; }
-.card-base::before { content:""; position:absolute; inset:0; border-radius:inherit; background:linear-gradient(135deg,rgba(99,167,255,0.38),rgba(34,211,238,0.20)); opacity:0; transition:opacity .6s; pointer-events:none; mix-blend:overlay; }
+.card-base { position:relative; border-radius:2.5rem; background:rgba(255,255,255,0.08); backdrop-filter:blur(22px); -webkit-backdrop-filter:blur(22px); border:1px solid rgba(255,255,255,0.12); box-shadow:0 6px 28px -6px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.04); transition:box-shadow .45s, transform .45s, border-color .45s, background .45s; }
+.card-base::before { content:""; position:absolute; inset:0; border-radius:inherit; background:linear-gradient(135deg,rgba(99,167,255,0.38),rgba(34,211,238,0.20)); opacity:0; transition:opacity .6s; pointer-events:none; mix-blend-mode: overlay; }
 .card-base:hover { transform:translateY(-6px) scale(1.025); box-shadow:0 14px 44px -10px rgba(20,90,170,0.55), 0 0 0 1px rgba(125,211,252,0.35); border-color:rgba(160,210,255,0.5); background:rgba(255,255,255,0.11); }
 .card-base:hover::before { opacity:1; }
 .card-tight { padding:2rem; }
