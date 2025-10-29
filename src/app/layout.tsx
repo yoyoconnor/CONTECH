@@ -18,7 +18,7 @@ export const metadata = {
   title: "Contech — Operational AI",
   description: "Deploy operational AI to automate processes, forecast demand, and surface insights—fast. Usage-based, no lock-in.",
   applicationName: "Contech",
-  authors: [{ name: "Contech Team", url: "https://contech.ai" }],
+  authors: [{ name: "Contech Team", url: "thecontech.com" }],
   keywords: ["operational ai", "forecasting", "automation", "ai analytics", "generative ai"],
   openGraph: {
     title: "Contech — Operational AI",
