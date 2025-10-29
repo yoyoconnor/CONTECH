@@ -1,4 +1,3 @@
-// @ts-nocheck
 /*
   Removed import from "next/font/google" because that module is unavailable in this environment.
   Define the actual font-face or load Google Fonts via globals.css (or a CDN) and keep CSS variable
@@ -7,7 +6,9 @@
 */
 import "./globals.css";
 import { Navbar } from "./Navbar";
-// import type { ReactNode } from "react";
+import Image from "next/image";
+import Link from "next/link";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 // Fallback stubs for the font variables — set the real font variables in globals.css.
 const geistSans = { variable: "--font-geist-sans" };
@@ -74,7 +75,7 @@ export default function RootLayout({ children }: { children: any }) {
               {/* Column 1: Brand */}
               <div className="flex flex-col gap-3">
                 <div className="flex items-center gap-3">
-                  <img src="/logo.png" alt="Contech" width={96} height={96} className="h-10 w-auto object-contain" />
+                  <Image src="/logo.png" alt="Contech" width={96} height={96} className="h-10 w-auto object-contain" />
                   <span className="text-xl font-bold text-white">Contech</span>
                 </div>
                 <p className="text-sm text-gray-400 max-w-sm">Operational AI that compounds your advantage — forecasting, automation, and generative insights without re-platforming.</p>
@@ -84,11 +85,11 @@ export default function RootLayout({ children }: { children: any }) {
               <div>
                 <h4 className="text-white font-semibold mb-3">Quick Links</h4>
                 <ul className="space-y-2 text-sm">
-                  <li><a href="/" className="hover:text-white">Home</a></li>
-                  <li><a href="/products" className="hover:text-white">Products</a></li>
-                  <li><a href="/about" className="hover:text-white">About</a></li>
-                  <li><a href="/why" className="hover:text-white">Why Now</a></li>
-                  <li><a href="/contact" className="hover:text-white">Contact</a></li>
+                  <li><Link href="/" className="hover:text-white">Home</Link></li>
+                  <li><Link href="/products" className="hover:text-white">Products</Link></li>
+                  <li><Link href="/about" className="hover:text-white">About</Link></li>
+                  <li><Link href="/why" className="hover:text-white">Why Now</Link></li>
+                  <li><Link href="/contact" className="hover:text-white">Contact</Link></li>
                 </ul>
               </div>
 

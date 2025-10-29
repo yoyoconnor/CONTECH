@@ -1,7 +1,8 @@
 "use client";
-/* @ts-nocheck */
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 // Lightweight Navbar without external imports to avoid type/runtime diagnostics in this environment.
 export function Navbar() {
@@ -20,7 +21,7 @@ export function Navbar() {
   <nav className="relative flex items-center justify-between h-16 md:h-20 rounded-none bg-transparent px-4 md:px-10 overflow-visible">
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-3 bg-white/6 dark:bg-white/4/10 rounded-full px-3 py-1">
-            <img src="/logo.png" alt="Contech Logo" width={110} height={110} className="h-8 md:h-12 w-auto object-contain" />
+            <Image src="/logo.png" alt="Contech Logo" width={44} height={44} className="h-8 md:h-12 w-auto object-contain" />
             <span className="text-lg md:text-2xl font-extrabold tracking-tight drop-shadow-md select-none">
               <span className="text-white lowercase">con</span>
               <span className="text-blue-400 lowercase">tech</span>
@@ -28,11 +29,11 @@ export function Navbar() {
           </div>
         </div>
         <ul className="hidden md:flex flex-1 justify-center gap-6 md:gap-10 text-sm md:text-base font-medium items-center">
-          <li><a href="/" className="text-gray-300 hover:text-white transition-colors">Home</a></li>
-          <li><a href="/products" className="text-gray-300 hover:text-white transition-colors">Products</a></li>
-          <li><a href="/about" className="text-gray-300 hover:text-white transition-colors">About</a></li>
-          <li><a href="/why" className="text-gray-300 hover:text-white transition-colors">Why Now</a></li>
-          <li><a href="/contact" className="text-gray-300 hover:text-white transition-colors">Contact</a></li>
+          <li><Link href="/" className="text-gray-300 hover:text-white transition-colors">Home</Link></li>
+          <li><Link href="/products" className="text-gray-300 hover:text-white transition-colors">Products</Link></li>
+          <li><Link href="/about" className="text-gray-300 hover:text-white transition-colors">About</Link></li>
+          <li><Link href="/why" className="text-gray-300 hover:text-white transition-colors">Why Now</Link></li>
+          <li><Link href="/contact" className="text-gray-300 hover:text-white transition-colors">Contact</Link></li>
         </ul>
 
         <div className="flex items-center gap-3">
@@ -55,11 +56,11 @@ export function Navbar() {
         <div className={`md:hidden absolute left-4 right-4 top-full mt-3 z-40 ${menuOpen ? 'block' : 'hidden'}`}>
           <div className="bg-black/6/10 dark:bg-white/6 backdrop-blur-sm border border-white/6 rounded-3xl p-4 shadow-lg backdrop-clip-padding">
             <ul className="flex flex-col gap-3 text-sm">
-              <li><a href="/" className="text-gray-300 hover:text-white transition-colors block">Home</a></li>
-              <li><a href="/products" className="text-gray-300 hover:text-white transition-colors block">Products</a></li>
-              <li><a href="/about" className="text-gray-300 hover:text-white transition-colors block">About</a></li>
-              <li><a href="/why" className="text-gray-300 hover:text-white transition-colors block">Why Now</a></li>
-              <li><a href="/contact" className="text-gray-300 hover:text-white transition-colors block">Contact</a></li>
+              <li><Link href="/" className="text-gray-300 hover:text-white transition-colors block">Home</Link></li>
+              <li><Link href="/products" className="text-gray-300 hover:text-white transition-colors block">Products</Link></li>
+              <li><Link href="/about" className="text-gray-300 hover:text-white transition-colors block">About</Link></li>
+              <li><Link href="/why" className="text-gray-300 hover:text-white transition-colors block">Why Now</Link></li>
+              <li><Link href="/contact" className="text-gray-300 hover:text-white transition-colors block">Contact</Link></li>
             </ul>
           </div>
         </div>

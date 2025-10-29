@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
@@ -134,9 +135,9 @@ export default function About() {
           <p className="text-gray-200 leading-relaxed mb-6 relative z-10">
             Adoption should be frictionless. Start with targeted use-cases, expand when ROI is real. No over-commitment, no trapped value.
           </p>
-          <a href="/contact" className="inline-block px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl shadow-lg transition focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 relative z-10">
+          <Link href="/contact" className="inline-block px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl shadow-lg transition focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 relative z-10">
             Talk To Us
-          </a>
+          </Link>
         </motion.div>
       </section>
     </main>

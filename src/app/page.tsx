@@ -1,9 +1,8 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
-
-const currentYear = new Date().getFullYear();
 
 export default function Home() {
   const featureCards = [
@@ -87,20 +86,20 @@ export default function Home() {
             { label: "Explore Products", href: "/products", primary: true },
             { label: "Talk To Us", href: "/contact" },
           ].map((btn) => (
-            <motion.a
-              key={btn.label}
-              href={btn.href}
-              variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0 } }}
-              whileHover={{ y: -2 }}
-              whileTap={{ y: 1 }}
-              className={
-                btn.primary
-                  ? "px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold shadow-lg shadow-blue-900/40 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition"
-                  : "px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold border border-white/15 backdrop-blur-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-offset-2 transition"
-              }
-            >
-              {btn.label}
-            </motion.a>
+            <Link key={btn.label} href={btn.href} legacyBehavior>
+              <motion.a
+                variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0 } }}
+                whileHover={{ y: -2 }}
+                whileTap={{ y: 1 }}
+                className={
+                  btn.primary
+                    ? "px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold shadow-lg shadow-blue-900/40 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition"
+                    : "px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold border border-white/15 backdrop-blur-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-offset-2 transition"
+                }
+              >
+                {btn.label}
+              </motion.a>
+            </Link>
           ))}
         </motion.div>
       </section>

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // Lightweight type shims for the editor environment to avoid noisy diagnostics
 // These are intentionally permissive and should be removed if you install proper @types packages.
 

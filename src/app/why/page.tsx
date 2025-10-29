@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 
 export default function WhyNow() {
   return (
@@ -53,7 +54,7 @@ export default function WhyNow() {
           <div className="absolute inset-0 opacity-0 hover:opacity-100 transition bg-[radial-gradient(circle_at_40%_30%,rgba(255,255,255,0.18),transparent_65%)]" />
           <h3 className="text-2xl font-bold text-white mb-4 relative z-10">Begin With One Workflow</h3>
           <p className="text-gray-200 mb-6 leading-relaxed relative z-10">We don&apos;t sell transformation theatre. We deploy durable capability. Start small—expand with proof.</p>
-          <a href="/contact" className="inline-block px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition relative z-10">Talk To Us</a>
+          <Link href="/contact" className="inline-block px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition relative z-10">Talk To Us</Link>
         </div>
       </div>
     </main>
