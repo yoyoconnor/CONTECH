@@ -74,7 +74,7 @@ export default function RootLayout({ children }: { children: any }) {
                   <Image src="/logo.png" alt="Contech" width={96} height={96} className="h-11 w-auto object-contain" />
                   <span className="text-xl font-bold text-white tracking-tight">Contech</span>
                 </div>
-                <p className="text-sm text-gray-400 max-w-xs leading-relaxed">Operational AI that compounds your advantage — forecasting, automation, and generative insights without re-platforming.</p>
+                <p className="text-sm text-gray-400 max-w-xs leading-relaxed">Operational AI consulting — we help you add forecasting, automation, and generative insights without re-platforming.</p>
               </div>
 
               {/* Column 2: Links */}
@@ -82,7 +82,7 @@ export default function RootLayout({ children }: { children: any }) {
                 <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider opacity-90">Quick Links</h4>
                 <ul className="space-y-3 text-sm">
                   <li><Link href="/" className="text-gray-400 hover:text-white transition-colors">Home</Link></li>
-                  <li><Link href="/products" className="text-gray-400 hover:text-white transition-colors">Products</Link></li>
+                  <li><Link href="/products" className="text-gray-400 hover:text-white transition-colors">Services</Link></li>
                   <li><Link href="/about" className="text-gray-400 hover:text-white transition-colors">About</Link></li>
                   <li><Link href="/why" className="text-gray-400 hover:text-white transition-colors">Why Now</Link></li>
                   <li><Link href="/contact" className="text-gray-400 hover:text-white transition-colors">Contact</Link></li>

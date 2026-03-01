@@ -29,10 +29,10 @@ export function Navbar() {
           </div>
         </div>
         <ul className="hidden md:flex flex-1 justify-center gap-1">
-          {["Home", "Products", "About", "Why Now", "Contact"].map((label) => (
+          {["Home", "Services", "About", "Why Now", "Contact"].map((label) => (
             <li key={label}>
               <Link
-                href={label === "Home" ? "/" : label === "Why Now" ? "/why" : `/${label.toLowerCase()}`}
+                href={label === "Home" ? "/" : label === "Why Now" ? "/why" : label === "Services" ? "/products" : `/${label.toLowerCase()}`}
                 className="px-4 py-2 rounded-lg text-sm font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-colors"
               >
                 {label}
@@ -59,10 +59,10 @@ export function Navbar() {
         <div className={`md:hidden absolute left-0 right-0 top-full z-40 ${menuOpen ? "block" : "hidden"}`}>
           <div className="rounded-b-2xl bg-white/[0.08] backdrop-blur-xl border border-t-0 border-white/10 p-4 shadow-xl">
             <ul className="flex flex-col gap-0.5 text-sm">
-              {["Home", "Products", "About", "Why Now", "Contact"].map((label) => (
+              {["Home", "Services", "About", "Why Now", "Contact"].map((label) => (
                 <li key={label}>
                   <Link
-                    href={label === "Home" ? "/" : label === "Why Now" ? "/why" : `/${label.toLowerCase()}`}
+                    href={label === "Home" ? "/" : label === "Why Now" ? "/why" : label === "Services" ? "/products" : `/${label.toLowerCase()}`}
                     onClick={() => setMenuOpen(false)}
                     className="block px-4 py-3 rounded-lg text-gray-300 hover:text-white hover:bg-white/5 transition-colors"
                   >

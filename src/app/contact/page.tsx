@@ -15,7 +15,7 @@ export default function Contact() {
       >
         <div className="absolute inset-0 opacity-0 hover:opacity-100 transition duration-300 bg-[radial-gradient(circle_at_50%_30%,rgba(255,255,255,0.06),transparent_60%)]" />
         <p className="text-gray-400 text-base md:text-lg mb-8 text-center leading-relaxed relative z-10">
-          Ready to explore what we can deploy together? Reach out—no sales theatre, just real capability.
+          Ready to explore how we can help? Reach out—no sales theatre, just real capability.
         </p>
         <div className="flex flex-col gap-3 w-full relative z-10">
           <a

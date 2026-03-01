@@ -35,7 +35,7 @@ export default function About() {
             <div>
               <h2 className="text-2xl font-bold text-white mb-4">What We Do</h2>
               <p className="text-gray-200 leading-relaxed">
-                Contech delivers AI-enabled automation, forecasting, data enrichment, and intelligent workflow orchestration—without forcing teams to re-platform. We integrate seamlessly with existing tools and expose capabilities through modular APIs and dashboards.
+                We help teams implement AI-enabled automation, forecasting, data enrichment, and intelligent workflow orchestration—without forcing re-platforming. We work with your existing tools and can design modular APIs and dashboards.
               </p>
             </div>
             <div>

@@ -25,7 +25,7 @@ export default function Home() {
     },
     {
       title: "Generative AI",
-      desc: "Deploy tailored generation for content, personalization & insights.",
+      desc: "We help you design and implement tailored generation for content, personalization & insights.",
       icon: (
         <svg width="44" height="44" viewBox="0 0 24 24" className="text-blue-400" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
           <path d="M12 2a4 4 0 014 4v2h2a2 2 0 012 2v8a2 2 0 01-2 2H8a2 2 0 01-2-2v-8a2 2 0 012-2h2V6a4 4 0 014-4z" /><path d="M9 14l2 2 4-4" />
@@ -36,14 +36,14 @@ export default function Home() {
 
   const howItWorks = [
     { step: 1, title: "Discover", desc: "We map your workflows, data, and goals to find the highest-impact use cases." },
-    { step: 2, title: "Deploy", desc: "Narrow-scope pilots go live in weeks—no rip-and-replace, no long integrations." },
-    { step: 3, title: "Measure", desc: "Track real outcomes. Expand only where the numbers justify it." },
+    { step: 2, title: "Design & Implement", desc: "We design narrow-scope pilots and guide implementation—no rip-and-replace, we work with your stack." },
+    { step: 3, title: "Measure", desc: "Track real outcomes together. We help you expand only where the numbers justify it." },
   ];
 
   const stats = [
-    { value: "< 4 wks", label: "Typical pilot deploy" },
-    { value: "$0", label: "Upfront platform fee" },
-    { value: "95%+", label: "Pilot retention" },
+    { value: "< 4 wks", label: "To first value" },
+    { value: "$0", label: "Upfront commitment" },
+    { value: "95%+", label: "Ongoing engagements" },
   ];
 
   const useCases = [
@@ -82,7 +82,7 @@ export default function Home() {
           transition={{ delay: 0.1, duration: 0.6 }}
           className="text-gray-400 text-base md:text-xl mb-10 max-w-2xl leading-relaxed"
         >
-          Deploy forecasting, automation, enrichment, and decision flows—without re-platforming. Start narrow, prove value, expand. Usage-based. No lock-in.
+          We help you add forecasting, automation, enrichment, and decision flows—without re-platforming. Start narrow, prove value, expand. Engagement-based. No lock-in.
         </motion.p>
         <motion.div
           initial="hidden"
@@ -91,7 +91,7 @@ export default function Home() {
           className="flex flex-col sm:flex-row gap-3 sm:gap-4"
         >
           {[
-            { label: "Explore Products", href: "/products", primary: true },
+            { label: "Our Services", href: "/products", primary: true },
             { label: "Talk To Us", href: "/contact" },
           ].map((btn) => (
             <Link key={btn.label} href={btn.href} legacyBehavior>

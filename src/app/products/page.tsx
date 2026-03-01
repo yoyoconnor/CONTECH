@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const products = [
   {
     name: "All-in-One Customer Business Solution",
-    description: "One platform for CRM, support, analytics, and automation—unified for small and mid-sized teams.",
+    description: "We help you design and implement an all-in-one customer and business solution—CRM, support, analytics, and automation unified for your team.",
     image: "/globe.svg",
     link: "#",
   },
@@ -45,7 +45,7 @@ const previousProjects = [
 export default function Products() {
   return (
     <div className="min-h-full w-full flex flex-col items-center py-8">
-      <h1 className="text-3xl md:text-4xl font-bold text-white mb-10 tracking-tight text-center">Our Products</h1>
+      <h1 className="text-3xl md:text-4xl font-bold text-white mb-10 tracking-tight text-center">Our Services</h1>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-6xl">
         {products.map((product, i) => (
           <motion.div
@@ -76,7 +76,7 @@ export default function Products() {
       <section className="w-full max-w-6xl mt-16 md:mt-20">
         <h2 className="text-2xl md:text-3xl font-bold text-white mb-2 tracking-tight text-center">Previous Projects</h2>
         <p className="text-gray-400 text-center text-sm md:text-base max-w-xl mx-auto mb-10">
-          Selected past engagements and proof-of-concept deployments.
+          Selected past engagements and proof-of-concept work.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {previousProjects.map((project, i) => (
