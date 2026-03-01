@@ -34,11 +34,22 @@ export default function Home() {
     },
   ];
 
-  const templateSolutions = [
-    { name: "Demand Forecasting", blurb: "Predict volume & inventory with time-series + causal drivers.", color: "from-blue-500/30 to-cyan-400/20" },
-    { name: "Churn Detection", blurb: "Surface at-risk customers early and trigger retention flows.", color: "from-indigo-500/30 to-purple-400/20" },
-    { name: "Workflow Orchestrator", blurb: "Chain tools, LLM calls, and data events into adaptive pipelines.", color: "from-emerald-500/30 to-teal-400/20" },
-    { name: "Generative Knowledge Base", blurb: "Context-grounded Q&A over your operational data.", color: "from-fuchsia-500/30 to-pink-400/20" },
+  const howItWorks = [
+    { step: 1, title: "Discover", desc: "We map your workflows, data, and goals to find the highest-impact use cases." },
+    { step: 2, title: "Deploy", desc: "Narrow-scope pilots go live in weeks—no rip-and-replace, no long integrations." },
+    { step: 3, title: "Measure", desc: "Track real outcomes. Expand only where the numbers justify it." },
+  ];
+
+  const stats = [
+    { value: "< 4 wks", label: "Typical pilot deploy" },
+    { value: "$0", label: "Upfront platform fee" },
+    { value: "95%+", label: "Pilot retention" },
+  ];
+
+  const useCases = [
+    { title: "Forecasting", desc: "Demand, inventory, and labor—predict before you commit." },
+    { title: "Automation", desc: "Repetitive tasks and approvals handled by AI-driven flows." },
+    { title: "Enrichment", desc: "Clean, label, and augment data for better decisions." },
   ];
 
   return (
@@ -124,55 +135,80 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Templates Section */}
-      <section className="w-full max-w-6xl py-16 md:py-20 relative" id="templates">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
+      {/* How it works */}
+      <section className="w-full max-w-5xl py-14 md:py-20 relative">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          viewport={{ once: true }}
+          className="text-2xl md:text-3xl font-bold text-white mb-10 text-center tracking-tight"
         >
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-3 tracking-tight">Starter Templates</h2>
-          <p className="text-gray-400 max-w-xl mx-auto text-sm md:text-base leading-relaxed">
-            Pre-configured solution patterns. Customize and scale without rebuilding.
-          </p>
-        </motion.div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-          {templateSolutions.map((tpl) => (
+          How we work
+        </motion.h2>
+        <div className="grid md:grid-cols-3 gap-8 md:gap-10">
+          {howItWorks.map((item, i) => (
             <motion.div
-              key={tpl.name}
-              initial={{ opacity: 0, y: 20 }}
+              key={item.step}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.15 }}
-              transition={{ duration: 0.4 }}
-              whileHover={{ y: -3 }}
-              className={`card-base p-5 group overflow-hidden bg-gradient-to-br ${tpl.color} border-white/10`}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ delay: i * 0.1 }}
+              className="flex flex-col items-center text-center"
             >
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300 bg-gradient-to-br from-white/10 to-transparent" />
-              <div className="relative z-10">
-                <h3 className="text-base font-semibold text-white mb-1.5 tracking-tight">{tpl.name}</h3>
-                <p className="text-gray-300 text-sm leading-relaxed">{tpl.blurb}</p>
-              </div>
+              <span className="flex items-center justify-center w-12 h-12 rounded-full bg-sky-500/20 border border-sky-400/30 text-sky-300 font-bold text-lg mb-4">
+                {item.step}
+              </span>
+              <h3 className="text-lg font-semibold text-white mb-2 tracking-tight">{item.title}</h3>
+              <p className="text-gray-400 text-sm leading-relaxed max-w-[260px]">{item.desc}</p>
             </motion.div>
           ))}
         </div>
       </section>
 
-      {/* Why Now CTA */}
-      <motion.section
-        id="why"
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.25 }}
-        transition={{ duration: 0.5 }}
-        className="w-full max-w-3xl text-center py-16 md:py-20 relative"
-      >
-        <h2 className="text-2xl md:text-3xl font-bold mb-4 text-white tracking-tight">Why Now?</h2>
-        <p className="text-gray-400 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-          Most teams know AI is inevitable—but execution lags. Contech turns intention into deployed value. Start narrow, expand as impact compounds.
-        </p>
-      </motion.section>
+      {/* Stats */}
+      <section className="w-full max-w-4xl py-12 md:py-16 relative">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="grid grid-cols-3 gap-6 md:gap-10"
+        >
+          {stats.map((s) => (
+            <div key={s.label} className="text-center">
+              <div className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-1">{s.value}</div>
+              <div className="text-xs md:text-sm text-gray-400 uppercase tracking-wider">{s.label}</div>
+            </div>
+          ))}
+        </motion.div>
+      </section>
+
+      {/* Use cases */}
+      <section className="w-full max-w-5xl py-12 md:py-16 relative">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-2xl md:text-3xl font-bold text-white mb-10 text-center tracking-tight"
+        >
+          What we help with
+        </motion.h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          {useCases.map((uc, i) => (
+            <motion.div
+              key={uc.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ delay: i * 0.08 }}
+              className="card-base p-6 text-center group overflow-hidden"
+            >
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.06),transparent_70%)]" />
+              <h3 className="text-lg font-semibold text-white mb-2 relative z-10">{uc.title}</h3>
+              <p className="text-gray-400 text-sm leading-relaxed relative z-10">{uc.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
 
       {/* Final CTA */}
       <motion.section
