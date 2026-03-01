@@ -1,24 +1,43 @@
 @import "tailwindcss";
 
+/* Typography — Outfit for headings, system stack for body */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
+
 :root {
-  --background: #0b1622; /* lightened */
-  --foreground: #f2f6fa;
+  --background: #060d14;
+  --foreground: #eef4fb;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-display: 'Outfit', var(--font-sans);
+  --accent: #3b82f6;
+  --accent-soft: rgba(59, 130, 246, 0.15);
+  --glow: rgba(96, 165, 250, 0.4);
 }
 
 @media (prefers-color-scheme: dark) {
-  :root { --background: #0b1622; --foreground: #f2f6fa; }
+  :root { --background: #060d14; --foreground: #eef4fb; }
+}
+
+html {
+  overflow-x: hidden;
+  scrollbar-width: none;
+}
+html::-webkit-scrollbar {
+  display: none;
 }
 
 body {
-  /* brighter multi‑stop radial */
-  background: radial-gradient(circle at 30% 25%, #1c3552 0%, #13283d 45%, #0d1f30 70%, #091523 100%);
+  background: radial-gradient(ellipse 120% 80% at 50% -20%, #1e3a5f 0%, transparent 50%),
+    radial-gradient(ellipse 80% 50% at 100% 50%, rgba(30, 58, 95, 0.6) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 80% at 0% 80%, rgba(15, 23, 42, 0.9) 0%, transparent 50%),
+    #080f18;
   color: var(--foreground);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 /* Theme variable overrides for light/dark modes (simple, opt-in) */
@@ -39,35 +58,64 @@ body {
 /* Accessible focus-visible helper (for browsers not supporting :focus-visible) */
 :focus:not(:focus-visible) { outline: none; }
 
-.social-icon { display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:12px; color:var(--foreground); background:transparent; transition:all .18s ease; }
-.social-icon svg { width:18px; height:18px; }
-.social-icon:hover { transform:translateY(-3px); color:#fff; background:linear-gradient(90deg,rgba(59,130,246,0.12),rgba(6,182,212,0.08)); }
+.font-display { font-family: var(--font-display); }
+
+.social-icon { display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:14px; color:var(--foreground); background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.08); transition:transform .2s ease, color .2s, background .2s, border-color .2s; }
+.social-icon svg { width:20px; height:20px; }
+.social-icon:hover { transform:translateY(-2px); color:#fff; background:rgba(59,130,246,0.2); border-color:rgba(96,165,250,0.3); }
 
 @keyframes gradientMove { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+@keyframes glow-pulse { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
 
-/* Scrollbar subtle */
-::-webkit-scrollbar { width: 10px; }
-::-webkit-scrollbar-track { background: #0d1f30; }
-::-webkit-scrollbar-thumb { background: linear-gradient(#2563eb,#0ea5e9); border-radius: 20px; }
-::-webkit-scrollbar-thumb:hover { background: linear-gradient(#3b82f6,#06b6d4); }
+/* Scrollbar hidden site-wide */
+::-webkit-scrollbar { display: none; }
 
-::selection { background: #2563eb; color: #fff; }
+::selection { background: rgba(59, 130, 246, 0.4); color: #fff; }
 
 /************************************
   Utility Enhancements
 *************************************/
 .blur-glow { position: relative; }
-.blur-glow:before { content:""; position:absolute; inset:0; background:radial-gradient(circle at 30% 30%, rgba(96,165,250,0.35), transparent 70%); filter:blur(42px); opacity:.55; pointer-events:none; }
+.blur-glow::before { content:""; position:absolute; inset:-20px; background:radial-gradient(circle at 50% 50%, var(--glow), transparent 60%); filter:blur(48px); opacity:.5; pointer-events:none; }
 
-/* Popping Card Utilities (brightened) */
-.card-base { position:relative; border-radius:2.5rem; background:rgba(255,255,255,0.08); backdrop-filter:blur(22px); -webkit-backdrop-filter:blur(22px); border:1px solid rgba(255,255,255,0.12); box-shadow:0 6px 28px -6px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.04); transition:box-shadow .45s, transform .45s, border-color .45s, background .45s; }
-.card-base::before { content:""; position:absolute; inset:0; border-radius:inherit; background:linear-gradient(135deg,rgba(99,167,255,0.38),rgba(34,211,238,0.20)); opacity:0; transition:opacity .6s; pointer-events:none; mix-blend-mode: overlay; }
-.card-base:hover { transform:translateY(-6px) scale(1.025); box-shadow:0 14px 44px -10px rgba(20,90,170,0.55), 0 0 0 1px rgba(125,211,252,0.35); border-color:rgba(160,210,255,0.5); background:rgba(255,255,255,0.11); }
-.card-base:hover::before { opacity:1; }
-.card-tight { padding:2rem; }
-.card-loose { padding:2.5rem; }
-.card-accent { border-color:rgba(160,210,255,0.55); }
+/* Glass cards — refined */
+.card-base {
+  position: relative;
+  border-radius: 1.75rem;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 4px 24px -8px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+  transition: box-shadow .35s ease, transform .35s ease, border-color .35s, background .35s;
+}
+.card-base::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(145deg, rgba(99, 167, 255, 0.12), transparent 50%, rgba(34, 211, 238, 0.08));
+  opacity: 0;
+  transition: opacity .4s ease;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+.card-base:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 20px 40px -12px rgba(15, 23, 42, 0.6),
+    0 0 0 1px rgba(125, 211, 252, 0.2);
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.09);
+}
+.card-base:hover::before { opacity: 1; }
+.card-tight { padding: 1.75rem; }
+.card-loose { padding: 2.25rem 2rem; }
+.card-accent { border-color: rgba(160, 210, 255, 0.35); }
 
-@media (hover:none) { .card-base:hover { transform:none; } }
+@media (hover: none) { .card-base:hover { transform: none; } }
 
 @media (prefers-reduced-motion: reduce) { * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition: none !important; } }

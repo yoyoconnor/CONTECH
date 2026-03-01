@@ -1,11 +1,12 @@
 "use client";
 
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const products = [
   {
-    name: "AI Chatbot",
-    description: "24/7 customer support powered by generative AI, tailored for small businesses.",
+    name: "All-in-One Customer Business Solution",
+    description: "One platform for CRM, support, analytics, and automation—unified for small and mid-sized teams.",
     image: "/globe.svg",
     link: "#",
   },
@@ -23,36 +24,81 @@ const products = [
   },
 ];
 
+const previousProjects = [
+  {
+    name: "Tpara Web App",
+    description: "Custom web application for streamlined workflows and user-driven operations.",
+    outcome: "Deployed and in use for target users.",
+  },
+  {
+    name: "Churn & Retention Flow",
+    description: "At-risk customer detection with automated retention workflows.",
+    outcome: "Improved retention and LTV.",
+  },
+  {
+    name: "Knowledge Base Q&A",
+    description: "Context-grounded generative Q&A over operational data.",
+    outcome: "Faster internal support and onboarding.",
+  },
+];
+
 export default function Products() {
   return (
-    <main className="min-h-screen flex flex-col items-center px-4 py-14 relative">
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-transparent to-blue-900/30" />
-        <div className="absolute top-36 left-1/3 w-72 h-72 bg-blue-600/20 blur-3xl rounded-full" />
-        <div className="absolute bottom-24 right-1/4 w-80 h-80 bg-cyan-400/10 blur-3xl rounded-full" />
-      </div>
-      <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-12 tracking-tight text-center">Our Products</h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 w-full max-w-6xl">
-        {products.map((product) => (
-          <div
+    <div className="min-h-full w-full flex flex-col items-center py-8">
+      <h1 className="text-3xl md:text-4xl font-bold text-white mb-10 tracking-tight text-center">Our Products</h1>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-6xl">
+        {products.map((product, i) => (
+          <motion.div
             key={product.name}
-            className="group relative flex flex-col items-start overflow-hidden rounded-3xl p-10 bg-white text-slate-800 shadow-xl shadow-blue-900/10 border border-slate-200 transition duration-300 hover:-translate-y-1 hover:shadow-2xl focus-within:shadow-2xl"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.1, duration: 0.4 }}
+            whileHover={{ y: -4 }}
+            className="card-base card-loose group overflow-hidden flex flex-col"
           >
-            <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.15),transparent_70%)]" />
-            <div className="mb-6 p-4 rounded-2xl bg-blue-50 border border-blue-200 inline-flex relative z-10">
-              <Image src={product.image} alt={product.name} width={64} height={64} className="w-16 h-16 object-contain" />
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.06),transparent_60%)]" />
+            <div className="relative z-10 mb-5 p-3.5 rounded-2xl bg-white/10 border border-white/10 w-fit">
+              <Image src={product.image} alt={product.name} width={56} height={56} className="w-14 h-14 object-contain opacity-90" />
             </div>
-            <h2 className="text-2xl font-bold mb-3 tracking-tight relative z-10 text-slate-900 group-hover:text-blue-700 transition">{product.name}</h2>
-            <p className="text-slate-600 text-base leading-relaxed mb-8 relative z-10">{product.description}</p>
+            <h2 className="text-xl font-semibold text-white mb-2 tracking-tight relative z-10">{product.name}</h2>
+            <p className="text-gray-400 text-[15px] leading-relaxed mb-8 relative z-10 flex-1">{product.description}</p>
             <a
               href={product.link}
-              className="inline-block px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold shadow focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-white transition mt-auto relative z-10"
+              className="relative z-10 inline-flex items-center justify-center px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/18 text-white text-sm font-medium border border-white/15 transition-colors w-fit"
             >
               Learn More
             </a>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </main>
+
+      {/* Previous Projects */}
+      <section className="w-full max-w-6xl mt-16 md:mt-20">
+        <h2 className="text-2xl md:text-3xl font-bold text-white mb-2 tracking-tight text-center">Previous Projects</h2>
+        <p className="text-gray-400 text-center text-sm md:text-base max-w-xl mx-auto mb-10">
+          Selected past engagements and proof-of-concept deployments.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {previousProjects.map((project, i) => (
+            <motion.div
+              key={project.name}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 + i * 0.08, duration: 0.4 }}
+              whileHover={{ y: -3 }}
+              className="card-base p-6 group overflow-hidden flex flex-col"
+            >
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.06),transparent_60%)]" />
+              <h3 className="text-lg font-semibold text-white mb-2 tracking-tight relative z-10">{project.name}</h3>
+              <p className="text-gray-400 text-sm leading-relaxed mb-4 relative z-10 flex-1">{project.description}</p>
+              <p className="text-sky-300/90 text-sm font-medium relative z-10">
+                <span className="text-gray-500 font-normal">Outcome: </span>
+                {project.outcome}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+    </div>
   );
 }

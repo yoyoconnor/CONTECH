@@ -55,53 +55,47 @@ export default function RootLayout({ children }: { children: any }) {
         </a>
         {/* Global Background */}
         <div className="fixed inset-0 -z-10">
-          {/* Brightened layered gradient + radial accents */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0d1824] via-[#12304c] to-[#0b3a63]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_35%,rgba(99,167,255,0.40),transparent_60%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_70%,rgba(56,189,248,0.28),transparent_65%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_120%_80%_at_50%_-20%,rgba(30,58,95,0.5),transparent_50%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(59,130,246,0.18),transparent_50%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(6,182,212,0.12),transparent_45%)]" />
         </div>
-        {/* Navbar */}
-        <div className="fixed top-0 left-0 w-full z-50 px-4 md:px-8">
+        <div className="min-h-screen w-full flex flex-col">
           <Navbar />
-        </div>
-  {/* Spacer for fixed navbar height */}
-  <div className="pt-28 pb-12 px-4 md:px-8">
-          <div className="max-w-7xl mx-auto bg-black/10 dark:bg-white/4 backdrop-blur-md border border-white/6 rounded-3xl p-6 md:p-8 overflow-hidden">
-            <main id="main" tabIndex={-1}>
+          <div className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden bg-white/[0.06] backdrop-blur-xl">
+            <main id="main" tabIndex={-1} className="font-display min-h-full px-4 sm:px-6 md:px-8 pt-6 pb-8">
               {children}
             </main>
-          </div>
-          {/* Global Footer */}
-          <footer className="w-full text-gray-300 mt-12 border-t border-white/10">
-            <div className="max-w-6xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+            {/* Global Footer */}
+            <footer className="w-full text-gray-300 border-t border-white/10 px-4 sm:px-6 md:px-8 pt-8 pb-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 items-start">
               {/* Column 1: Brand */}
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-col gap-4">
                 <div className="flex items-center gap-3">
-                  <Image src="/logo.png" alt="Contech" width={96} height={96} className="h-10 w-auto object-contain" />
-                  <span className="text-xl font-bold text-white">Contech</span>
+                  <Image src="/logo.png" alt="Contech" width={96} height={96} className="h-11 w-auto object-contain" />
+                  <span className="text-xl font-bold text-white tracking-tight">Contech</span>
                 </div>
-                <p className="text-sm text-gray-400 max-w-sm">Operational AI that compounds your advantage — forecasting, automation, and generative insights without re-platforming.</p>
+                <p className="text-sm text-gray-400 max-w-xs leading-relaxed">Operational AI that compounds your advantage — forecasting, automation, and generative insights without re-platforming.</p>
               </div>
 
               {/* Column 2: Links */}
               <div>
-                <h4 className="text-white font-semibold mb-3">Quick Links</h4>
-                <ul className="space-y-2 text-sm">
-                  <li><Link href="/" className="hover:text-white">Home</Link></li>
-                  <li><Link href="/products" className="hover:text-white">Products</Link></li>
-                  <li><Link href="/about" className="hover:text-white">About</Link></li>
-                  <li><Link href="/why" className="hover:text-white">Why Now</Link></li>
-                  <li><Link href="/contact" className="hover:text-white">Contact</Link></li>
+                <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider opacity-90">Quick Links</h4>
+                <ul className="space-y-3 text-sm">
+                  <li><Link href="/" className="text-gray-400 hover:text-white transition-colors">Home</Link></li>
+                  <li><Link href="/products" className="text-gray-400 hover:text-white transition-colors">Products</Link></li>
+                  <li><Link href="/about" className="text-gray-400 hover:text-white transition-colors">About</Link></li>
+                  <li><Link href="/why" className="text-gray-400 hover:text-white transition-colors">Why Now</Link></li>
+                  <li><Link href="/contact" className="text-gray-400 hover:text-white transition-colors">Contact</Link></li>
                 </ul>
               </div>
 
               {/* Column 3: Contact & Social */}
               <div>
-                <h4 className="text-white font-semibold mb-3">Contact</h4>
-                <p className="text-sm"><a href="mailto:crbarbaccia@crimson.ua.edu" className="hover:text-white underline">crbarbaccia@crimson.ua.edu</a></p>
-                <p className="text-sm text-gray-400 mt-2">Prefer a quick chat? Reply to the email above and we’ll schedule.</p>
+                <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider opacity-90">Contact</h4>
+                <p className="text-sm"><a href="mailto:crbarbaccia@crimson.ua.edu" className="text-gray-300 hover:text-white transition-colors underline underline-offset-2">crbarbaccia@crimson.ua.edu</a></p>
+                <p className="text-sm text-gray-500 mt-2 max-w-xs">Reply to schedule a quick chat.</p>
 
-                <div className="mt-4 flex items-center gap-3">
+                <div className="mt-5 flex items-center gap-2">
                   <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="social-icon">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M23 3a10.9 10.9 0 01-3.14 1.53A4.48 4.48 0 0012 7v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
                   </a>
@@ -115,10 +109,11 @@ export default function RootLayout({ children }: { children: any }) {
               </div>
             </div>
 
-            <div className="border-t border-white/6 text-center py-4 text-sm text-gray-400">
-              <p>© {year} <span className="text-white font-semibold">Contech</span>. All rights reserved.</p>
+            <div className="border-t border-white/8 mt-8 pt-6 text-center text-sm text-gray-500">
+              © {year} <span className="text-white/90 font-medium">Contech</span>. All rights reserved.
             </div>
           </footer>
+          </div>
         </div>
       </body>
     </html>

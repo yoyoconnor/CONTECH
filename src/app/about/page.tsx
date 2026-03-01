@@ -14,15 +14,8 @@ const fadeUp = (delay = 0) => ({
 
 export default function About() {
   return (
-    <main className="min-h-screen flex flex-col items-center relative">
-      {/* Decorative backdrop elements */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-transparent to-blue-900/20" />
-        <div className="absolute top-40 left-1/4 w-72 h-72 bg-blue-600/20 blur-3xl rounded-full" />
-        <div className="absolute bottom-20 right-1/5 w-80 h-80 bg-cyan-400/10 blur-3xl rounded-full" />
-      </div>
-
-      <section className="max-w-5xl mx-auto text-center pt-8 pb-16 px-4 md:px-0">
+    <div className="min-h-full w-full flex flex-col items-center">
+      <section className="w-full max-w-5xl mx-auto text-center pt-4 pb-12 px-4 md:px-0">
         <motion.h1 {...fadeUp()} className="text-4xl md:text-5xl font-extrabold text-white mb-8 tracking-tight relative">
           <span className="relative inline-block">
             About Contech
@@ -104,12 +97,12 @@ export default function About() {
           {[{
             name: "Connor Barbaccia",
             role: "Co-Founder",
-            img: "https://media.licdn.com/dms/image/v2/D5603AQF7WilUXNAAPA/profile-displayphoto-shrink_400_400/B56ZbpdDWfGsAg-/0/1747673430938?e=1755734400&v=beta&t=6_qfeTJJQDz-u0Ttx8o7L6ZEggn6gvSAAfrM7aWbE8M",
+            img: "/connorb.jpeg",
             link: "https://www.linkedin.com/in/connor-barbaccia/"
           }, {
             name: "Connor Kulawiak",
             role: "Co-Founder",
-            img: "https://media.licdn.com/dms/image/v2/D4E03AQG50n37PU9jiw/profile-displayphoto-shrink_400_400/B4EZbhUPbwHYAg-/0/1747536902376?e=1755734400&v=beta&t=xXmFS3VZAPbK5EUeOFgDbyp6aNJrjhHdAJbUSQOOa5U",
+            img: "/connork.jpeg",
             link: "https://www.linkedin.com/in/connor-kulawiak/"
           }].map((f, i) => (
             <motion.div key={f.name} {...fadeUp(0.05 * (i + 1))} className="card-base p-8 group overflow-hidden relative">
@@ -140,6 +133,6 @@ export default function About() {
           </Link>
         </motion.div>
       </section>
-    </main>
+    </div>
   );
 }

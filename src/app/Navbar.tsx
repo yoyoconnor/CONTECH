@@ -17,32 +17,36 @@ export function Navbar() {
   }, []);
 
   return (
-    <header className="w-full">
-  <nav className="relative flex items-center justify-between h-16 md:h-20 rounded-none bg-transparent px-4 md:px-10 overflow-visible">
-        <div className="flex items-center gap-3">
-          <div className="flex items-center gap-3 bg-white/6 dark:bg-white/4/10 rounded-full px-3 py-1">
-            <Image src="/logo.png" alt="Contech Logo" width={44} height={44} className="h-8 md:h-12 w-auto object-contain" />
-            <span className="text-lg md:text-2xl font-extrabold tracking-tight drop-shadow-md select-none">
-              <span className="text-white lowercase">con</span>
-              <span className="text-blue-400 lowercase">tech</span>
+    <header className="shrink-0 w-full bg-white/[0.06] backdrop-blur-xl border-b border-white/[0.1]">
+      <nav className="relative flex items-center justify-between h-14 md:h-16 px-4 md:px-6 overflow-visible">
+        <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-2.5 rounded-full pl-1.5 pr-4 py-1.5">
+            <Image src="/logo.png" alt="Contech Logo" width={40} height={40} className="h-9 w-auto object-contain" />
+            <span className="text-lg md:text-xl font-bold tracking-tight select-none">
+              <span className="text-white">con</span>
+              <span className="text-sky-400">tech</span>
             </span>
           </div>
         </div>
-        <ul className="hidden md:flex flex-1 justify-center gap-6 md:gap-10 text-sm md:text-base font-medium items-center">
-          <li><Link href="/" className="text-gray-300 hover:text-white transition-colors">Home</Link></li>
-          <li><Link href="/products" className="text-gray-300 hover:text-white transition-colors">Products</Link></li>
-          <li><Link href="/about" className="text-gray-300 hover:text-white transition-colors">About</Link></li>
-          <li><Link href="/why" className="text-gray-300 hover:text-white transition-colors">Why Now</Link></li>
-          <li><Link href="/contact" className="text-gray-300 hover:text-white transition-colors">Contact</Link></li>
+        <ul className="hidden md:flex flex-1 justify-center gap-1">
+          {["Home", "Products", "About", "Why Now", "Contact"].map((label) => (
+            <li key={label}>
+              <Link
+                href={label === "Home" ? "/" : label === "Why Now" ? "/why" : `/${label.toLowerCase()}`}
+                className="px-4 py-2 rounded-lg text-sm font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-colors"
+              >
+                {label}
+              </Link>
+            </li>
+          ))}
         </ul>
 
-        <div className="flex items-center gap-3">
-          {/* Mobile menu button only (theme toggle removed per request) */}
+        <div className="flex items-center">
           <button
             onClick={() => setMenuOpen((s: boolean) => !s)}
             aria-expanded={menuOpen}
             aria-label={menuOpen ? "Close navigation" : "Open navigation"}
-            className="md:hidden p-2 rounded-md bg-white/6 hover:bg-white/10 transition text-white focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="md:hidden p-2.5 rounded-xl bg-white/8 hover:bg-white/12 transition text-white focus:outline-none focus:ring-2 focus:ring-sky-400/50"
           >
             {menuOpen ? (
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
@@ -52,15 +56,20 @@ export function Navbar() {
           </button>
         </div>
 
-        {/* Mobile menu (small screens) */}
-        <div className={`md:hidden absolute left-4 right-4 top-full mt-3 z-40 ${menuOpen ? 'block' : 'hidden'}`}>
-          <div className="bg-black/6/10 dark:bg-white/6 backdrop-blur-sm border border-white/6 rounded-3xl p-4 shadow-lg backdrop-clip-padding">
-            <ul className="flex flex-col gap-3 text-sm">
-              <li><Link href="/" className="text-gray-300 hover:text-white transition-colors block">Home</Link></li>
-              <li><Link href="/products" className="text-gray-300 hover:text-white transition-colors block">Products</Link></li>
-              <li><Link href="/about" className="text-gray-300 hover:text-white transition-colors block">About</Link></li>
-              <li><Link href="/why" className="text-gray-300 hover:text-white transition-colors block">Why Now</Link></li>
-              <li><Link href="/contact" className="text-gray-300 hover:text-white transition-colors block">Contact</Link></li>
+        <div className={`md:hidden absolute left-0 right-0 top-full z-40 ${menuOpen ? "block" : "hidden"}`}>
+          <div className="rounded-b-2xl bg-white/[0.08] backdrop-blur-xl border border-t-0 border-white/10 p-4 shadow-xl">
+            <ul className="flex flex-col gap-0.5 text-sm">
+              {["Home", "Products", "About", "Why Now", "Contact"].map((label) => (
+                <li key={label}>
+                  <Link
+                    href={label === "Home" ? "/" : label === "Why Now" ? "/why" : `/${label.toLowerCase()}`}
+                    onClick={() => setMenuOpen(false)}
+                    className="block px-4 py-3 rounded-lg text-gray-300 hover:text-white hover:bg-white/5 transition-colors"
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

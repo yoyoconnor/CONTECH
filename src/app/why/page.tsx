@@ -5,14 +5,8 @@ import Link from "next/link";
 
 export default function WhyNow() {
   return (
-    <main className="min-h-screen flex flex-col items-center px-4 py-10 relative">
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-transparent to-blue-900/30" />
-        <div className="absolute top-1/4 left-1/3 w-72 h-72 bg-blue-600/20 blur-3xl rounded-full" />
-        <div className="absolute bottom-16 right-1/4 w-80 h-80 bg-cyan-400/10 blur-3xl rounded-full" />
-      </div>
-
-      <div className="w-full max-w-4xl text-center pt-8 pb-14">
+    <div className="min-h-full w-full flex flex-col items-center px-4 py-8">
+      <div className="w-full max-w-4xl text-center pt-4 pb-10">
         <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6 tracking-tight">Why Now?</h1>
         <p className="text-gray-300 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
           AI adoption is accelerating. The gap between those who integrate decision automation and those who wait is widening. Early movers compound efficiency, intelligence, and customer closeness.
@@ -57,6 +51,6 @@ export default function WhyNow() {
           <Link href="/contact" className="inline-block px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition relative z-10">Talk To Us</Link>
         </div>
       </div>
-    </main>
+    </div>
   );
 }
